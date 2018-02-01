@@ -38,7 +38,7 @@ class App extends Component {
 
   jeffiSize(text, index) {
     const jokes = this.state.jokes;
-    jokes[index] = text.replace('Chuck Norris', 'Jeff Gladnick');
+    jokes[index] = text.replace(/Chuck/g, 'Jeff').replace(/Norris/g, 'Gladnick');
     this.setState({
       jokes: jokes
     })
@@ -77,6 +77,7 @@ class App extends Component {
           <Category onClick={this.loadJokes.bind(this)}/>
           <Search searchText={this.searchText.bind(this)} search={this.search.bind(this)} />
           <Joke jokes={this.state.jokes} jeffiSize={this.jeffiSize.bind(this)} />
+          <span className="category load" onClick={() => {this.loadJokes()}}>Load New Jokes</span>
         </div>
       </div>
     );

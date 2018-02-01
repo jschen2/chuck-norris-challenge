@@ -48,6 +48,10 @@
   width: 7%;
 }
 
+.load {
+  width: 12%;
+}
+
 .category:after,
 .searchButton:after {
   background-color: #000000;
