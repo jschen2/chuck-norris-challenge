@@ -70,6 +70,11 @@
   width: 100%;
 }
 
+.active:after {
+  left: 0;
+  width: 100%;
+}
+
 ul {
   list-style: none;
   margin: 0 auto;

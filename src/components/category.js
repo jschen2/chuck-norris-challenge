@@ -4,7 +4,8 @@ export class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: []
+      categories: [],
+      active: ''
     };
   }
 
@@ -18,11 +19,18 @@ export class Category extends Component {
       });
   }
 
+  setCategory(category) {
+    this.setState({
+      active: category
+    });
+    this.props.onClick(category);
+  }
+
   render() {
     return (
       <div className="categories">
         {this.state.categories.map((category, i) => {
-          return <span className="category" key={i} onClick={this.props.onClick.bind(this, category)}>{category}</span>
+          return <span className={'category' + (category === this.state.active ? ' active' : '')} key={i} onClick={this.setCategory.bind(this, category)}>{category}</span>
         })}
       </div>
     )
